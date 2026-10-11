@@ -2,7 +2,7 @@
 Name=Pixora Dark
 Comment=16 bit icon theme
 Inherits=breeze-dark,hicolor
-Directories=scalable/apps,scalable/places,scalable/categories,scalable/mimetypes
+Directories=scalable/apps,scalable/places,scalable/categories,scalable/mimetypes,scalable/status
 
 [scalable/apps]
 Size=16
