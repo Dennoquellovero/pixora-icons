@@ -78,7 +78,7 @@ Want to contribute to the project? Check our [Contributing Guidelines](CONTRIBUT
 Pixora Accent makes folder bodies follow the user's KDE accent color. Glyphs use darker shades of that color while retaining their shapes and details. These dynamic colors are an exception to the fixed Resurrect 32 palette.
 
 >[!WARNING]
-> **Pixora Accent was vibe-coded with AI assistance** because I could not implement KDE's accent-color behavior myself for each icon. **Errors and visual inconsistencies may appear as a result.** If you find a problem, please open an issue with the icon name, a screenshot, your KDE version and your accent color.
+> **Pixora Accent was entirely vibe-coded** because I could not implement KDE's accent-color behavior myself for each icon or code a script that does that on my behalf. **Errors and visual inconsistencies may appear as a result.** If you find a problem, please open an issue with the icon name, a screenshot, your KDE version and your accent color. Thank you.
 
 ### Install and enable
 
