@@ -1,5 +1,5 @@
 pkgbase = pixora-icons-git
-	pkgdesc = 16-bit icons theme for Linux desktops. (GIT version)
+	pkgdesc = 16-bit icon theme with optional KDE accent-colored folders. (GIT version)
 	pkgver = 1.0.0.r302.g8359016
 	pkgrel = 47
 	url = https://github.com/tsora1603/pixora-icons

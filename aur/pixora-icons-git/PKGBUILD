@@ -2,7 +2,7 @@
 
 _pkgname='pixora-icons'
 pkgname="$_pkgname-git"
-pkgdesc='16-bit icons theme for Linux desktops. (GIT version)'
+pkgdesc='16-bit icon theme with optional KDE accent-colored folders. (GIT version)'
 pkgver=1.0.0.r302.g8359016
 pkgrel=47
 url='https://github.com/tsora1603/pixora-icons'
@@ -23,23 +23,19 @@ pkgver() {
 }
 
 package() {
-  install -dm755 "$pkgdir/usr/share/icons/pixora"
-  cp -fa "$srcdir/$_pkgname/pixora/"* "$pkgdir/usr/share/icons/pixora/"  
-  find "$pkgdir/usr/share/icons/pixora" -type d -print0 \
-    | xargs -r0 chmod 0755
-  find "$pkgdir/usr/share/icons/pixora" -type f -print0 \
-    | xargs -r0 chmod 0644
-
-  install -dm755 "$pkgdir/usr/share/icons/pixora-dark"
-  cp -fa "$srcdir/$_pkgname/pixora-dark/"* "$pkgdir/usr/share/icons/pixora-dark/"
-  find "$pkgdir/usr/share/icons/pixora-dark" -type d -print0 \
-    | xargs -r0 chmod 0755
-  find "$pkgdir/usr/share/icons/pixora-dark" -type f -print0 \
-    | xargs -r0 chmod 0644
+  local theme
+  for theme in pixora pixora-dark pixora-accent; do
+    install -dm755 "$pkgdir/usr/share/icons/$theme"
+    cp -a "$srcdir/$_pkgname/$theme/." "$pkgdir/usr/share/icons/$theme/"
+    find "$pkgdir/usr/share/icons/$theme" -type d -print0 \
+      | xargs -r0 chmod 0755
+    find "$pkgdir/usr/share/icons/$theme" -type f -print0 \
+      | xargs -r0 chmod 0644
+  done
 
   install -dm755 "$pkgdir/usr/share/doc/$pkgname"
-  mv -f "$srcdir/$_pkgname/README.md" \
-   "$pkgdir/usr/share/doc/$pkgname/"
+  install -m644 "$srcdir/$_pkgname/README.md" \
+    "$pkgdir/usr/share/doc/$pkgname/README.md"
   cd "$pkgdir/usr/share/doc" && ln -sr "$pkgname" "$_pkgname"
 }
 
