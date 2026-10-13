@@ -105,44 +105,24 @@ Every app icon should be vectorized. Reason being, I think it's way easier to, i
 6. Read this tutorial again and make sure you understand each step;
 7. Done! :)
 
-## Folder Icons and Pixora Accent
+## Folder Icons
 
-Folder contributions now include the original Pixora artwork and its generated **Pixora Accent** version. Pixora Dark shares the original artwork, while Pixora Accent uses KDE's accent color at render time. See the [Pixora Accent documentation](README.md#-pixora-accent-for-kde) for compatibility and activation.
+Folder icons also need a **Pixora Accent** version to follow the user's KDE accent color. You only need to draw the original icon — `generate-accent.py` creates the Accent version for you!
 
-### Prepare the original artwork
+Start from an existing folder on the **16x16 grid** and keep its shape. Use `#E3C896` for the body, `#AB947A` for the glyph and `#3E3546` for its outline. Keep the white paper and the lines between the smaller folders as they are. The original drawing still follows the Resurrect 32 palette; Accent uses matching colors automatically.
 
-Start from an existing folder on the **16×16 grid**, keeping its silhouette and the smaller folders/paper at the top. Draw the new glyph with its dark outline and use the original folder palette:
+### Tutorial:
 
-| Area | Original Pixora color | Pixora Accent behavior |
-| --- | --- | --- |
-| Folder body, including separate fragments and glyph cutouts | `#E3C896` | Follows the accent color |
-| Main glyph | `#AB947A` | Uses a darker shade of the accent color |
-| Glyph details | Supported darker tones, such as `#966C6C` | Keep their tonal differences using accent-derived shades |
-| Outer borders, glyph outlines and lines between the smaller folders | `#3E3546` | Keep their original color and shape |
-| White paper areas | `#FFFFFF` | Stay white |
+>[!Note]
+> You'll need Python 3.9 or newer. If the script cannot adapt a new folder, its conversion rules need to be updated in `scripts/generate-accent.py`. Make changes there and in the original artwork, then regenerate the Accent files.
 
-The original artwork still follows the Resurrect 32 palette. The palette exception applies to the dynamic colors of the generated Accent variant. Preserve the paper and the lines separating the smaller folders when drawing or recoloring a glyph.
-
-### Vectorize and generate the Accent version
-
-1. Follow the vectorizing tutorial above. Save the original PNG as `pixora/16/places/folder-<name>.png` and the SVG as `pixora/scalable/places/folder-<name>.svg`. Keep the existing folder layout and SVG path/transform structure where possible; the generator checks these before adapting an icon.
-2. Use a real SVG file for the original `folder-<name>` artwork. Add alternate icon names as **relative symlinks** to it in the appropriate `pixora/scalable/` contexts. The generator creates corresponding Accent aliases across those contexts, so KDE can load the adapted folder under each name.
-3. From the repository root, regenerate the Accent artwork and aliases, then check that the generated files match their sources (Python 3.9 or newer):
-
-   ```bash
-   python3 scripts/generate-accent.py
-   python3 scripts/generate-accent.py --check
-   ```
-
-Make artwork changes in the original Pixora files and conversion changes in `scripts/generate-accent.py`, then regenerate `pixora-accent/`. If the script reports that an artwork or palette needs review, review its paths and add an explicit conversion rule for the new structure before regenerating. Custom layouts, mixed glyph/shadow paths and new glyph tones can require this extra step.
-
-### Review before submitting
-
-Review both Pixora and Pixora Accent in KDE Plasma 6, using several accent colors, light and dark backgrounds, normal and selected states, and small and enlarged icon sizes. Inspect the entire folder for leftover beige/brown pixels, especially separate body fragments and glyph cutouts. Check that glyphs use darker matching tones, their details remain visible, and borders, white paper and the lines between the smaller folders retain their original pixels. Check the alternate icon names too.
-
-A browser or another SVG renderer may show the beige fallback; use KDE's color-scheme-aware icon loader to verify recoloring. If an application shows a cached version, reselect the icon theme or reopen it. Changing the user's accent color does not require regenerating the files.
-
-Include the original PNG/SVG, added or updated symlinks, generated Accent files and any necessary generator changes in the same PR. Include screenshots of the original and Accent versions for review, and regenerate again whenever the source artwork or its aliases change.
+1. Draw and vectorize the icon following the tutorial above;
+2. Save the PNG as `pixora/16/places/folder-<name>.png` and the SVG as `pixora/scalable/places/folder-<name>.svg`;
+3. Add alternate icon names as relative symlinks in `pixora/scalable/`. The script will create their Accent versions too;
+4. From the repository root, run `python3 scripts/generate-accent.py`, then `python3 scripts/generate-accent.py --check`;
+5. Test Pixora Accent in KDE Plasma 6 with different accent colors, light/dark backgrounds and selected icons. Check for leftover beige/brown pixels, and make sure the glyph is darker than the folder;
+6. Include the original PNG/SVG, symlinks, generated `pixora-accent/` files and screenshots in your PR. Regenerate whenever the original artwork or its aliases change;
+7. Done! :)
 
 ---
 
