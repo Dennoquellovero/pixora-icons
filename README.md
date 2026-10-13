@@ -28,32 +28,6 @@ A pixel-style icon theme for Linux desktop systems that aims to be as faithful a
 - **Pixora Dark** uses the same artwork with a dark-theme fallback.
 - **[Pixora Accent](#-pixora-accent-for-kde)** is an optional KDE variant with accent-colored folders.
 
-## 🎨 Pixora Accent for KDE
-
-Pixora Accent makes folder bodies follow the user's KDE accent color. Glyphs use darker shades of that color while retaining their shapes and details. Borders, pixel geometry, white paper and the lines between the smaller folders remain unchanged. These dynamic colors are an exception to the fixed Resurrect 32 palette.
-
->[!WARNING]
-> **Pixora Accent was vibe-coded with AI assistance** because I could not implement KDE's accent-color behavior myself for each icon. **Errors and visual inconsistencies may appear as a result.** If you find a problem, please open an issue with the icon name, a screenshot, your KDE version and your accent color.
-
-The variant covers all 51 original folder illustrations and their existing aliases. Body fragments and glyph cutouts follow the accent color too. Branded folders keep their logo shapes, recolored with matching darker shades. Desktop retains its multicolored screen illustration, with only its beige area following the accent color. Other icons are inherited from Pixora, which must also be installed.
-
-### Install and enable
-
-Both the [manual installer](#manual-installation) and the repository's [AUR package](#arch-linux) install Pixora, Pixora Dark and Pixora Accent side by side. To use the optional variant:
-
-1. Open **KDE System Settings → Colors & Themes → Icons** and select **Pixora Accent**.
-2. Choose an accent color in **Colors & Themes → Colors** and apply it.
-
-The manual installer uses `~/.local/share/icons/`, or `$XDG_DATA_HOME/icons/` when configured. If installing the directories yourself, keep `pixora` and `pixora-accent` next to each other in that location.
-
-### Compatibility and updates
-
-Pixora Accent is intended for KDE Plasma 6 applications using KDE's color-scheme-aware SVG loader. It was tested with Qt 6.8.2 and KIconThemes 6.13.0. Other renderers may display the beige fallback instead of the chosen accent color. No background service or per-color regeneration is required.
-
-If an open application keeps the previous colors, reselect the icon theme or reopen the application to refresh its cached icons. KDE may slightly lighten the accent color for selected icons to improve contrast.
-
-Contributors can regenerate the folder artwork and aliases from the source checkout with `python3 scripts/generate-accent.py` and check them with `python3 scripts/generate-accent.py --check` (Python 3.9 or newer). The generator discovers original folders automatically and stops for review if an artwork has an unsupported structure.
-
 ## 🌠 Preview
 
 ![App_launcher](.github/icons-showcase-2.png)
@@ -98,6 +72,30 @@ b. Copy all three variants into the icon directory, preserving their internal sy
 
 ## 🎨 How to Contribute
 Want to contribute to the project? Check our [Contributing Guidelines](CONTRIBUTING.md)!
+
+## 🎨 Pixora Accent for KDE
+
+Pixora Accent makes folder bodies follow the user's KDE accent color. Glyphs use darker shades of that color while retaining their shapes and details. These dynamic colors are an exception to the fixed Resurrect 32 palette.
+
+>[!WARNING]
+> **Pixora Accent was vibe-coded with AI assistance** because I could not implement KDE's accent-color behavior myself for each icon. **Errors and visual inconsistencies may appear as a result.** If you find a problem, please open an issue with the icon name, a screenshot, your KDE version and your accent color.
+
+### Install and enable
+
+Both the [manual installer](#manual-installation) and the repository's [AUR package](#arch-linux) install Pixora, Pixora Dark and Pixora Accent side by side. To use the optional variant:
+
+1. Open **KDE System Settings → Colors & Themes → Icons** and select **Pixora Accent**.
+2. Choose an accent color in **Colors & Themes → Colors** and apply it.
+
+The manual installer uses `~/.local/share/icons/`, or `$XDG_DATA_HOME/icons/` when configured. If installing the directories yourself, keep `pixora` and `pixora-accent` next to each other in that location.
+
+### Compatibility and updates
+
+Pixora Accent is intended for KDE Plasma 6 applications using KDE's color-scheme-aware SVG loader. It was tested with Qt 6.8.2 and KIconThemes 6.13.0. Other renderers may display the beige fallback instead of the chosen accent color. No background service or per-color regeneration is required.
+
+If an open application keeps the previous colors, reselect the icon theme or reopen the application to refresh its cached icons. KDE may slightly lighten the accent color for selected icons to improve contrast.
+
+Contributors can regenerate the folder artwork and aliases from the source checkout with `python3 scripts/generate-accent.py` and check them with `python3 scripts/generate-accent.py --check` (Python 3.9 or newer). The generator discovers original folders automatically and stops for review if an artwork has an unsupported structure.
 
 ## 👥 CREDITS
 - Inspired by **MrDeltaMan**: https://github.com/MrDeltaMan/DeltaPixel-Theme
