@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 # Terminal colors
 GREEN='\033[0;32m'
