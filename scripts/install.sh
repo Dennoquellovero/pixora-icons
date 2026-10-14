@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-#!/bin/env bash
-=======
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
->>>>>>> 5aecec2121df30096d190d11c300cb190a5b7200
 
 repo_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)
 icon_root="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
